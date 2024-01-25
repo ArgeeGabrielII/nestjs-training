@@ -3,6 +3,7 @@ import { Task, TaskStatus } from './tasks.model';
 import { v4 as uuid } from 'uuid';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { create } from 'domain';
+import { stat } from 'fs';
 
 @Injectable()
 export class TasksService {
@@ -27,6 +28,13 @@ export class TasksService {
     };
 
     this.tasks.push(task);
+    return task;
+  }
+
+  updateTaskStatus(id: string, status: TaskStatus) {
+    const task = this.getTaskById(id);
+    task.status = status;
+
     return task;
   }
 
