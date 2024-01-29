@@ -1,0 +1,10 @@
+services:
+  nest-training:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      PG_ENDPOINT: ${PG_ENDPOINT}
+      PG_USERNAME: ${PG_USERNAME}
+      PG_PASSWORD: ${PG_PASSWORD}
+      PG_DATABASE: ${PG_DATABASE}
